@@ -1,28 +1,26 @@
-import { useState } from "react";
-import { useRef } from "react";
+import { useEffect, useState } from "react";
+
 function App() {
-  const nomRef = useRef();
-  const prenomRef = useRef();
-  const ageRef = useRef();  
- 
-  
- 
+  const [afficher, definirAfficher] = useState(true);
+
   return (
     <>
-
-    <h1> Exemple de useRef </h1>
-    <input type='text' ref={nomRef} />
-    <input type='text' ref={prenomRef} />
-    <input type='text' ref={ageRef} />
-    <button onClick={() => alert("Nom: " + nomRef.current.value + " Prenom: " + prenomRef.current.value + " Age: " + ageRef.current.value)}>Focus</button>
-    
- 
- 
+      <button onClick={() => definirAfficher(!afficher)}>Afficher / Cacher</button>
+      {afficher && <MonComposant />}
     </>
   );
-  
-  
- 
+}
+
+function MonComposant() {
+  useEffect(() => {
+    console.log("Montage : MonComposant est monté.");
+
+    return () => {
+      console.log("Démontage : MonComposant est supprimé.");
+    };
+  }, []);
+
+  return <h1>Bonjour, je suis un composant !</h1>;
 }
 
 export default App;
