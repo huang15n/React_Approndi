@@ -1,25 +1,38 @@
+  
 
-import { useState } from "react";
-export default function Enfant(props) {
+  import { useEffect, useState } from "react";
+function  Enfant(props) {
 
-  // États séparés pour chaque champ
-  const [nom, definirNom] = useState("");
-  const [prenom, definirPrenom] = useState("");
+  const [filmsData, definirfilmsData] = useState([]); 
+  
+  useEffect(() => {
+    console.log(props);
+    definirfilmsData(props.films); 
+    console.log("Enfant rendu"); 
+    console.log("data:", filmsData);
+    
+  }, [props.films]);  
 
-  const gesttionaireSoumission = (e) => {
-    e.preventDefault(); // Empêcher le comportement de soumission par défaut
-    props.envoyerData({nom, prenom});
-  };
+  return (
 
-
- 
-
-
-    return (
-        <div>
-           <input type="text" value={nom} onChange={(e) => definirNom(e.target.value)} />
-           <input type="text" value={prenom} onChange={(e) => definirPrenom(e.target.value)} />
-          <button onClick={gesttionaireSoumission}>Soumettre</button>
+    <>
+    {Array.isArray(filmsData) && filmsData.map(film => {
+      return (
+        <div key={film.id}>
+          <p>{film.titre}</p>
+          <p>{film.date}</p>
+          <p>{film.description}</p>
         </div>
-    );
+      );
+    })}
+   
+   
+    </>
+     
+
+  )
+         
 }
+
+
+export default Enfant;
