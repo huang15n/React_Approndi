@@ -1,28 +1,150 @@
-/* Enfant.css */
+/* ------------------------- Reset CSS ------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.film-container {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-  }
-  
-  .film-container h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  
-  .film-container p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
-  }
-  
-  .film-container:hover {
-    background-color: #f1f1f1;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-  }
-  
+/* ------------------------- Balises Globales ------------------------- */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* ------------------------- Liens ------------------------- */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* ------------------------- Paragraphes ------------------------- */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* ------------------------- Listes ------------------------- */
+ul, ol {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+li {
+  font-size: 1rem;
+}
+
+/* ------------------------- Tables ------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+/* ------------------------- Formulaires ------------------------- */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ------------------------- Boutons ------------------------- */
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* ------------------------- Images ------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* ------------------------- Conteneur Flex ------------------------- */
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ------------------------- Footer ------------------------- */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
