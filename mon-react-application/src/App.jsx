@@ -1,53 +1,17 @@
-import { createBrowserRouter, Link, NavLink, RouterProvider } from "react-router-dom";
-// Composant principal
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AuthPage from './AuthPage'; // Assurez-vous du chemin correct
+import HomePage from './HomePage'; // Par exemple, pour une page d'accueil
 
-function PageErreur() {
+const App = () => {
   return (
-    <div>
-      <h1>404 - Page introuvable</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth" element={<AuthPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
-
-function Accueil() {
-  return (
-    <div>
-      <h1>Accueil</h1>
-     <NavLink to="/produits">Produits</NavLink>
-    </div>
-  );
-}
-
-function Produits() {
-  return (
-    <div>
-      <h1>Produits</h1>
-      <NavLink to="/produits/chercher">Chercher</NavLink>
-    </div>
-  );
-}
-
-const routeur = createBrowserRouter([
-  {
-    path: "/",
-    element: <Accueil />,
-    errorElement: <PageErreur />,
-  },
-  {
-    path: "/produits",
-    element: <Produits />,
-    errorElement: <PageErreur />,
-  },
-   
-])
-
-export default function App() {
-  return (
-
-    <RouterProvider router={routeur} />
-    
-    
-    
-  );
-}
+export default App;
