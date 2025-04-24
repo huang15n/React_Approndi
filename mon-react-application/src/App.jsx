@@ -1,17 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AuthPage from './AuthPage'; // Assurez-vous du chemin correct
-import HomePage from './HomePage'; // Par exemple, pour une page d'accueil
+import React, { createContext } from "react";
+import Enfant from "./Enfant";
+
+const Contexte = createContext();
+
+const liste = [
+  { id: 1, nom: "Produit 1" },
+  { id: 2, nom: "Produit 2" },
+  { id: 3, nom: "Produit 3" },
+];
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth" element={<AuthPage />} />
-      </Routes>
-    </Router>
+    <Contexte.Provider value={liste}>
+      <div>
+        <h1>Mon Application React</h1>
+        <Enfant />
+      </div>
+    </Contexte.Provider>
   );
 };
 
+export { Contexte }; // Export pour utilisation dans d'autres fichiers
 export default App;

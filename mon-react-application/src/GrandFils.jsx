@@ -1,14 +1,19 @@
-import { useContext } from "react";
-import { MessageContext } from "./App"; 
+import React, { useContext } from "react";
+import { Contexte } from "./App";
 
-export default function GrandFils() {
-    const objet = useContext(MessageContext);
+const GrandFils = () => {
+  const liste = useContext(Contexte);
 
-    objet.fonction();
-    return (
-        <div>
-            <h1>GrandFils</h1>
-            <p>{objet.message}</p>
-        </div>
-    );
-}
+  return (
+    <div>
+      <h3>GrandFils</h3>
+      {liste.map((item) => (
+        <p key={item.id}>
+          {item.id} | {item.nom}
+        </p>
+      ))}
+    </div>
+  );
+};
+
+export default GrandFils;
